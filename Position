@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+int main() {
+    int num[10], size, newElement, position, i;
+    
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+    
+    printf("Enter %d elements:\n", size);
+    for(i = 0; i < size; i++) {
+        scanf("%d", &num[i]);
+    }
+
+    printf("Enter the position:");
+    scanf("%d", &position);
+
+    if(position < 0 || position > size) {
+        printf("Invalid position!\n");
+    } else {
+        printf("Insert the element at position %d: ", position);
+        scanf("%d", &newElement);
+
+        for(i = size; i > position; i--) {
+            num[i] = num[i - 1];
+        }
+
+        num[position] = newElement;
+        size++; 
+        printf("\nUpdated array:\n");
+        for(i = 0; i < size; i++) {
+            printf("%d ", num[i]);
+        }
+    }
+
+    return 0;
+}
